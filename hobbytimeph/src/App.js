@@ -1,32 +1,25 @@
-// src/App.js
+
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import TitleScreen from './TitleScreen';
+import Products from './products';
+import Brands from './brands';
+import About from './about';
+
 
 function App() {
   return (
-    <div className="App">
-      <nav>
-        <div className="menu">
-          <div className="logo">
-            <a href="#">Hobby Time</a>
-          </div>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="./brands.js">Brands</a></li>
-            <li><a href="./about.js">About Us</a></li>
-          </ul>
-        </div>
-      </nav>
-      <div className="img"></div>
-      <div className="center">
-        <div className="title">WELCOME</div>
-        <div className="sub_title">CO-HOBBYIST!</div>
-        <div className="btns">
-          <button>All Products</button>
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TitleScreen />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/brands" element={<Brands />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
